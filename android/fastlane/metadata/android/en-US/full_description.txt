@@ -1,0 +1,11 @@
+FeelsApp is a diary and emotions logging app. It lets you create simple notes and associate them with emotions.
+The notes offers full encryption with SQLite database. The app was designed for quick usability. The notes are sorted based on date.
+
+The app not only lets you create notes, but also is capable of showing statistics of these notes.
+
+*Encryption
+*Ability to see statistics of the notes
+*Ability to Encrypt the notes with or without a password
+*Colour coding for different emotions and feelings
+*Ability to rate your emotions from 2 to 10
+
