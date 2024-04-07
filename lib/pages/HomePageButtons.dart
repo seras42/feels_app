@@ -273,6 +273,12 @@ class FeelingHappy extends StatelessWidget {
                                 MaterialStateProperty.all<Color>(Colors.grey),
                             foregroundColor:
                                 MaterialStateProperty.all<Color>(Colors.white),
+                            shape:
+                            MaterialStateProperty.all<OutlinedBorder>(
+                              const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius
+                                      .zero), // Set zero border radius
+                            ),
                           ),
                           onPressed: () {
                             Navigator.pop(context);
@@ -286,6 +292,12 @@ class FeelingHappy extends StatelessWidget {
                                 MaterialStateProperty.all<Color>(Colors.green),
                             foregroundColor:
                                 MaterialStateProperty.all<Color>(Colors.white),
+                            shape:
+                            MaterialStateProperty.all<OutlinedBorder>(
+                              const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius
+                                      .zero), // Set zero border radius
+                            ),
                           ),
                           onPressed: () {
                             happyButtonPressed(moodLevel, 2);
@@ -294,6 +306,7 @@ class FeelingHappy extends StatelessWidget {
                             moodLevel = 2;
                           },
                           child: const Text('Add'),
+
                         )
                       ]),
                 ],

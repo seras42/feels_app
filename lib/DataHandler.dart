@@ -73,6 +73,9 @@ class DataHandler {
     _database = null;
     const storage = FlutterSecureStorage();
     await storage.delete(key: 'database_password');
+    if(listOfAllNotes != null) {
+      listOfAllNotes!.clear();
+    }
   }
 
    Future<void> createTables(cipher.Database database) async{
