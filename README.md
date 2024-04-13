@@ -2,7 +2,7 @@
 
 A feeling app for feelers. Log your emotions in an encrypted diary. See statistics of your feelings. You have an option to encrypt the data with or without password. The app is intended to be used as a diary.
 
-ANDROID
+ANDROID https://f-droid.org/packages/com.feels.feelingsApp.feels_app/
 
 Specifics:
 
