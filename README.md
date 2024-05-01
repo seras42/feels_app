@@ -15,11 +15,12 @@ App uses [sqflite_sqlcipher](https://pub.dev/packages/sqflite_sqlcipher) for cre
 
 
 TODO(this is for me, from easiest to hardest) whenever the stars align
-1. Auto Lock when minimzed option in settings(just do 'close database' on paused()
-2. Random password gen(make it go to 30 characters, why not)
-3. Make sure memory cleared after 'closeDatabase' when app running
-4. Note rating, implement slider instead of 2-10 rating. If possible
-5. Some sort of import, export function for backups
-6. Look in to internationalization or skip for future
-7. Ability to add more flags for a note(probably lots of work), possible solution is for 'moodType' to keep adding numbers for different flags
-8. More emotions(require lots of thinking before a decision can be established)
+1. Auto Lock when minimzed setting (just do 'close database' on paused()
+2. Auto Blind when minimzed, change the app to a black screen when app is minimized
+3. Random password gen(make it go to 30 characters, why not)
+4. Make sure memory cleared after 'closeDatabase' when app running
+5. Note rating, implement slider instead of 2-10 rating. If possible
+6. Some sort of import, export function for backups
+7. Look in to internationalization or skip for future
+8. Ability to add more flags for a note(probably lots of work), possible solution is for 'moodType' to keep adding numbers for different flags
+9. More emotions(require lots of thinking before a decision can be established)
