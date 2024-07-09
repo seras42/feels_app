@@ -14,6 +14,9 @@ App uses [sqflite_sqlcipher](https://pub.dev/packages/sqflite_sqlcipher) for cre
 ![5](https://github.com/seras42/feels_app/assets/109229384/2f5f209a-f627-43f3-ac36-a20bdf7a6443)
 
 
+PULL REQUESTS:
+At the moment i am busy, if anyone wants a feature you can try to implement it and make a pull request. Ideally first we should talk about the details on how it should be implemented to avoid misunderstanding. 
+
 TODO(this is for me, from easiest to hardest) whenever the stars align
 1. Auto Lock when minimzed setting (just do 'close database' on paused()
 2. #Auto Blind when minimzed, change the app to a black screen when app is minimized
