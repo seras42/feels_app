@@ -1,7 +1,4 @@
-
-
 import 'dart:collection';
-
 
 import 'package:feels_app/password_prompt.dart';
 import 'package:feels_app/pages/DataPage.dart';
@@ -10,7 +7,6 @@ import 'package:feels_app/pages/NotePage.dart';
 import 'package:feels_app/Settings.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-//import 'package:feels_app/DataHandlerOLd.dart';
 
 import 'DataHandler.dart';
 
@@ -69,29 +65,48 @@ class MainPage extends StatefulWidget {
 }
 
 
-class _MainPageState extends State<MainPage> {
+class _MainPageState extends State<MainPage>{
 
 
   var currentSelectedIndex = 0;
   final myController = TextEditingController();
   bool isDatabaseOpen = false;
 
+
+  void rebuildAllChildren(BuildContext context) {
+    void rebuild(Element el) {
+      el.markNeedsBuild();
+      el.visitChildren(rebuild);
+    }
+    (context as Element).visitChildren(rebuild);
+  }
+
   DataHandler dataHandler = DataHandler();
 
   Map<int, Map<int, Map<int, HashMap<int, HashSet<Note>>>>> notesSorted = {};
 
+
+
   @override
   void dispose() {
     // Clean up the controller when the widget is disposed.
+
     myController.dispose();
     super.dispose();
-    //dataHandler.closeDatabase();
+    dataHandler.closeDatabase();
+    if (kDebugMode) {
+      print('dispose() in main');
+    }
   }
+  @override
+
   @override
   void initState() {
     super.initState();
     //_refreshNotes(); // Loading the notes when the app starts
-
+    if (kDebugMode) {
+      print('initState() in main');
+    }
 
   }
   bool _isLoading = true;
@@ -125,6 +140,9 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    if (kDebugMode) {
+      print('Building Main');
+    }
 
     if(!dataHandler.isDataBaseOpen()){
       _isLoading = true;
@@ -165,12 +183,14 @@ class _MainPageState extends State<MainPage> {
         throw UnimplementedError('no widget for $currentSelectedIndex');
     }
 
+
     return Scaffold(
 
 
         body: _isLoading
             ? UnlockOrMakeTheDatabase(dataHandler: dataHandler, isDone: databaseIsOpen,)
             : page,
+
       bottomNavigationBar: SafeArea(
 
         child: BottomNavigationBar(

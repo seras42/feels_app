@@ -33,8 +33,9 @@ dependencies:
 
   flutter_secure_storage: ^9.0.0
   fl_chart: ^0.66.0
-  #sqflite: ^2.3.0
   path: ^1.8.3
+  csv: 6.0.0
+  file_picker: 8.0.3
   sqflite_sqlcipher:
 
   # The following adds the Cupertino Icons font to your application.
@@ -44,9 +45,10 @@ dependencies:
 dev_dependencies:
   sqflite_sqlcipher:
   flutter_secure_storage: ^9.0.0
-  #sqflite: ^2.3.0
   fl_chart: ^0.66.0
   path: ^1.8.3
+  csv: 6.0.0
+  file_picker: 8.0.3
   flutter_test:
     sdk: flutter
 

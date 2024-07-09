@@ -56,6 +56,13 @@ class _SettingsState extends State<Settings> {
                await widget.dataHandler.closeDatabase();
                 widget.databaseDeleted();
               }, child: const Text('Close database')),
+              ElevatedButton(onPressed: () => (),
+
+                  child: const Text('Export data to SCV file')),
+              ElevatedButton(onPressed: () => (),
+
+                  child: const Text('Import data from SCV file')),
+
 
 
               ElevatedButton(style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.redAccent),),onPressed: () => widget.goBack(), child: const Text("Go Back"))
@@ -78,7 +85,6 @@ class DeleteConfirmation extends StatefulWidget {
   @override
   State<DeleteConfirmation> createState() => _DeleteConfirmationState();
 }
-
 class _DeleteConfirmationState extends State<DeleteConfirmation> {
   TextEditingController controller = TextEditingController();
 
@@ -160,6 +166,14 @@ class _DeleteConfirmationState extends State<DeleteConfirmation> {
     );
   }
 }
+
+
+
+
+
+
+
+
 class GenerateTests extends StatelessWidget{
   final DataHandler dataHandler;
 

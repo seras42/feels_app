@@ -1,4 +1,5 @@
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class FeelingAngry extends StatelessWidget {
@@ -257,10 +258,8 @@ class FeelingHappy extends StatelessWidget {
                     style: TextStyle(color: Colors.green[800] ?? Colors.green),
                   ),
                   const SizedBox(height: 8),
-                  NumbersSelector(
-                    onSelected: setNewMoodLevel,
-                    colorMappings: colorMapping,
-                  ),
+                  SliderSelector( onSelected: setNewMoodLevel,
+                    colorMappings: colorMapping,),
                   const SizedBox(
                     height: 8,
                   ),
@@ -1031,6 +1030,92 @@ class FeelingNeutral extends StatelessWidget {
       ),
     );
   }
+}
+
+
+class SliderSelector extends StatefulWidget{
+  final void Function(int) onSelected;
+  final Map<int, Color> colorMappings;
+
+  const SliderSelector({
+    super.key,
+    required this.onSelected,
+    required this.colorMappings,
+});
+
+  @override
+  State<SliderSelector> createState() {
+    return _SliderSelectorState();
+  }
+}
+
+class _SliderSelectorState extends State<SliderSelector>{
+  double _currentSliderValue = 5.0;
+
+  Color? calculateColor(){
+    int minOutputValue = 0;
+    int maxOutputValue = 255;
+    //int value = (2 * _currentSliderValue as int) / 2 as int;
+    int mappedValue = ((_currentSliderValue - 1.0) / (10.0 - 1.0) * (maxOutputValue - minOutputValue)).toInt() + minOutputValue;
+    return widget.colorMappings[10]?.withAlpha(mappedValue) ?? Colors.grey[900];
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    return SliderTheme(data: SliderTheme.of(context).copyWith(
+        trackHeight: 15.0,
+        trackShape: const RoundedRectSliderTrackShape(),
+        inactiveTrackColor: Colors.grey[300],
+        thumbShape: const RoundSliderThumbShape(
+          enabledThumbRadius: 14.0,
+          pressedElevation: 7.0,
+        ),
+
+        overlayColor: Colors.grey.withOpacity(0.2),
+        overlayShape: const RoundSliderOverlayShape(overlayRadius: 32.0),
+        tickMarkShape: const RoundSliderTickMarkShape(),
+        activeTickMarkColor: Colors.white,
+        inactiveTickMarkColor: Colors.grey[800],
+        valueIndicatorShape: PaddleSliderValueIndicatorShape(),
+        valueIndicatorColor: Colors.black,
+
+        valueIndicatorTextStyle: TextStyle(
+          color: Colors.white,
+          fontSize: 30.0,
+        )),
+        child: Slider(
+          min: 1.0,
+          max: 10.0,
+      divisions: 10,
+      value: _currentSliderValue,
+      onChanged: (value) {
+        setState(() {
+          _currentSliderValue = value;
+        });
+      },
+      //activeColor: calculateColor(),
+      //thumbColor: widget.colorMappings[10] ?? Colors.white,
+    ));
+
+    return Slider(
+
+        value:  _currentSliderValue,
+        onChanged: (value) {
+          setState(() {
+
+            activeColor: calculateColor();
+            _currentSliderValue = value;
+          });
+        },
+      label: _currentSliderValue.toString(),
+      activeColor: calculateColor(),
+      thumbColor: widget.colorMappings[10] ?? Colors.white,
+      min: 1.0,
+      max: 10.0,
+    );
+  }
+
 }
 
 class NumbersSelector extends StatefulWidget {
